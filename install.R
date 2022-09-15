@@ -1,0 +1,1 @@
+install.packages(c("aqp", "soilDB", "SoilTaxonomy", "sf", "sharpshootR"))
