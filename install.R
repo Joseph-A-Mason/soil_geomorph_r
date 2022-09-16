@@ -1,1 +1,1 @@
-install.packages(c("aqp", "soilDB", "SoilTaxonomy", "sf", "sharpshootR"))
+install.packages(c("aqp", "soilDB", "SoilTaxonomy", "sf", "sharpshootR", "dendextend"))
