@@ -8,10 +8,10 @@ library(maps)
 #Replace the names in quotes with your series of interest
 #use all lower case
 
-Series1<-"warba"
-Series2<-"nebish"
-Series3<-"waukon"
-Series4<-"barnes"
+Series1<-"valentine"
+Series2<-"valent"
+Series3<-"chelsea"
+Series4<-"plainfield"
 
 # fetch KSSL data by series name
 sn <- c(Series1, Series2, Series3, Series4)
@@ -53,7 +53,7 @@ Series4lc <- subset(g, taxonname == Series4)
 #and northern latitude), in decimal degrees. Can get from Google
 #Earth
 
-map('county', 'Minnesota', xlim=c(-97.3, -89.1), ylim=c(43.2, 49.5))
+map('state', '.', xlim=c(-106.0, -87), ylim=c(37.0, 49.0), lforce='e')
 # add long/lat axes
 map.axes()
 # add locations of Series 1
@@ -65,7 +65,7 @@ points(y ~ x, data=site(Series3lc), pch=21, bg='DarkGreen')
 # add locations of Series 4
 points(y ~ x, data=site(Series4lc), pch=21, bg='Orange')
 # add a simple legend
-legend('topright', pch=21, pt.bg=c('RoyalBlue', 'DarkRed', 'DarkGreen', 'Orange'), 
+legend('topleft', pch=21, pt.bg=c('RoyalBlue', 'DarkRed', 'DarkGreen', 'Orange'), 
        legend=c(Series1, Series2, Series3, Series4), bty='n')
 
 # converts series names to a factor for grouping in plots of soil properties
@@ -77,20 +77,20 @@ g$taxonname <- factor(g$taxonname)
 
 par(mar=c(0,0,4,1))
 
+groupedProfilePlot(g, groups = 'taxonname', color='silt', print.id=FALSE, name=NA)
+
 groupedProfilePlot(g, groups = 'taxonname', color='clay', print.id=FALSE, name=NA)
 
 groupedProfilePlot(g, groups = 'taxonname', color='estimated_om', print.id=FALSE, name=NA)
 
 groupedProfilePlot(g, groups = 'taxonname', color='estimated_ph_h2o', print.id=FALSE, name=NA)
 
-groupedProfilePlot(g, groups = 'taxonname', color='bs82', print.id=FALSE, name=NA)
-
 #Aggregation by 1 cm slices. Essentially, the slab function creates 1 cm
 #thick slices from all horizons so the profiles can be compared
 #at the same depths from the surface downward. Properties including
 # % Clay, pH, Organic Matter, and Base Saturation at pH 8.2 are assigned
 #to each 1 cm slab
-g.slab <- slab(g, taxonname ~ clay + estimated_ph_h2o + estimated_om + bs82)
+g.slab <- slab(g, taxonname ~ silt + clay + estimated_om + estimated_ph_h2o)
 # inspect stacked data structure (check on whether operation is done correctly)
 str(g.slab)
 
@@ -103,7 +103,7 @@ g.slab$taxonname <- factor(g.slab$taxonname, levels=new.levels, labels=new.label
 # new names should match the order in:
 levels(g.slab$variable)
 # re-name soil property labels-- order is critical !
-levels(g.slab$variable) <- c('Clay (%)', 'pH 1:1 H2O','Estimated OM (%)', 'Base Saturation at pH 8.2 (%)')
+levels(g.slab$variable) <- c('Silt (%)', 'Clay (%)','Estimated OM (%)', 'ph 1:1 H2O')
 # define plotting style
 tps <- list(superpose.line=list(col=c('RoyalBlue', 'DarkRed', 'DarkGreen', 'Orange'), lwd=2))
 
