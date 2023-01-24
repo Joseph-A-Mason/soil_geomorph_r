@@ -6,3 +6,13 @@ This repository contains files for sample R scripts to be used in Geography/Soil
 
 Specific source of SoilWeb Box script: this is based on: https://github.com/ncss-tech/soilDB/blob/master/misc/soilweb-bbox-to-sketches.R
 
+### References
+
+Beaudette, D., Roudier, P., Brown, A. (2022). aqp: Algorithms for
+Quantitative Pedology. R package version 1.42.
+<https://CRAN.R-project.org/package=aqp>
+
+Beaudette, D.E., Roudier, P., O'Geen, A.T. Algorithms for
+quantitative pedology: A toolkit for soil scientists, Computers &
+Geosciences, Volume 52, March 2013, Pages 258-268, ISSN 0098-3004,
+http://dx.doi.org/10.1016/j.cageo.2012.10.020.
