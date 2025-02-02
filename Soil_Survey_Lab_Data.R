@@ -4,7 +4,7 @@ library(soilDB)
 library(lattice)
 library(maps)
 
-#Name the four soil series you will look up data for
+#Name the four soil series you will look up data from
 #Replace the names in quotes with your series of interest
 #use all lower case
 
