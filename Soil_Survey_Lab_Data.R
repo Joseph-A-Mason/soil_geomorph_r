@@ -4,7 +4,7 @@ library(soilDB)
 library(lattice)
 library(maps)
 
-#Name the four soil series you will look up data from
+#Name the four soil series you will look up data for
 #Replace the names in quotes with your series of interest
 #use all lower case
 
@@ -125,3 +125,4 @@ xyplot(top ~ p.q50 | variable, groups=taxonname, data=g.slab, ylab='Depth',
        par.settings=tps,
        auto.key=list(columns=3, lines=TRUE, points=FALSE)
 )
+

@@ -2,7 +2,10 @@ library(aqp)
 library(soilDB)
 library(sf)
 library(sharpshootR)
-library(SoilTaxonomy)
+library(httr)
+library(dendextend)
+library(latticeExtra)
+#library(SoilTaxonomy)
 
 ## copy / paste viewport bounding-box from SoilWeb
 ## click somewhere on the map
@@ -59,11 +62,11 @@ osd$SPC$hzd <- hzDistinctnessCodeToOffset(
   codes = c('very abrupt', 'abrubt', 'clear', 'gradual', 'diffuse')
 )
 ## arrange according to classification, accounting for order within keys
-data("ST_unique_list")
-osd$SPC$soilorder <- droplevels(factor(osd$SPC$soilorder, levels = ST_unique_list$order, ordered = TRUE))
-osd$SPC$suborder <- droplevels(factor(osd$SPC$suborder, levels = ST_unique_list$suborder, ordered = TRUE))
-osd$SPC$greatgroup <- droplevels(factor(osd$SPC$greatgroup, levels = ST_unique_list$greatgroup, ordered = TRUE))
-osd$SPC$subgroup <- droplevels(factor(osd$SPC$subgroup, levels = ST_unique_list$subgroup, ordered = TRUE))
+# data("ST_unique_list")
+# osd$SPC$soilorder <- droplevels(factor(osd$SPC$soilorder, levels = ST_unique_list$order, ordered = TRUE))
+# osd$SPC$suborder <- droplevels(factor(osd$SPC$suborder, levels = ST_unique_list$suborder, ordered = TRUE))
+# osd$SPC$greatgroup <- droplevels(factor(osd$SPC$greatgroup, levels = ST_unique_list$greatgroup, ordered = TRUE))
+# osd$SPC$subgroup <- droplevels(factor(osd$SPC$subgroup, levels = ST_unique_list$subgroup, ordered = TRUE))
 
 #The information extracted in the above steps is in the form of a
 #soil profile collection (SPC), an object in R designed for storing
