@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Joseph-A-Mason/soil_geomorph_r/main)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Joseph-A-Mason/soil_geomorph_r/main?url=rstudio)
 
 ## R Scripts to Demonstrate Use of AQP and Related Packages to Visualize Soils Data
 
